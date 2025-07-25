@@ -4,50 +4,505 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>TATC</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="shortcut icon" href="img/icon.gif" type="image/x-icon">
+<!--gaga-->
   <style>
-    .card-img-top {
-      margin: 25px auto;
-      width: 85%;
+    nav.navbar {
+      position: relative;
+      z-index: 10;
+    }
+
+    .theme {
+      background-color: #F77100;
+      color: white
+    }
+
+    .navbar-toggler {
+      background: #F77100;
+    }
+
+    .container-fluid.d-none.d-lg-flex.theme,
+    .container-fluid.d-flex.d-lg-none.theme {
+      padding-left: clamp(1px, 11vw, 145px);
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
 
     }
 
-    .RESPON {
-      margin-left: 220px;
-      margin-right: 220px;
+    .container-text {
+      margin-top: 35px;
+      margin-bottom: 26px;
     }
 
-    @media(max-width:1200px) {
-      div.RESPON {
-        margin-left: 50px;
-        margin-right: 50px;
+    img[alt='Logo'] {
+      width: clamp(65px, 12vw, 100px);
+      height: clamp(65px, 12vw, 100px);
+      margin-right: 17px;
 
+    }
+
+    .header-text1 {
+      font-size: 32.3px;
+      line-height: 1px;
+      inline-size: 540px;
+    }
+
+    .header-text2 {
+      font-size: 23.5px;
+      line-height: 1px;
+      inline-size: 540px;
+    }
+
+    @media(max-width: 1030px) {
+      .header-text1 {
+        font-size: clamp(20px, 4vw, 30px);
+      }
+
+      .header-text2 {
+        font-size: clamp(15px, 3vw, 22px);
+      }
+    }
+
+    @media(max-width: 990px) {
+      .custom-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #3D3D3D;
+        z-index: 2000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: white;
+      }
+
+      .navbar.navbar-expand-lg.theme {
+        background: white;
+      }
+
+      .custom-collapse .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background-color: #5E5E5E;
+        border: none;
+      }
+
+      .custom-collapse .nav-link {
+        border-bottom: 1px solid #838383c2;
+      }
+
+      .custom-collapse .dropdown-item {
+        color: white;
+        font-size: 20px;
+        border-bottom: 1px solid #838383c2;
+        padding-left: 50px;
+      }
+
+      /* Remove border from the last item */
+      .custom-collapse .nav-item:last-child>.nav-link,
+      .custom-collapse .dropdown-menu li:last-child>.dropdown-item {
+        border-bottom: none;
+      }
+    }
+
+    @media(max-width: 768px) {
+      .header-text1 {
+        font-size: clamp(20px, 4vw, 32.3px);
+        line-height: 1px;
+        inline-size: 540px;
+        width: 540px;
+      }
+
+      .header-text2 {
+        font-size: clamp(15px, 3vw, 28px);
+        line-height: 1px;
+        inline-size: 540px;
+      }
+
+      .container-text {
+        margin-top: 10px;
       }
     }
   </style>
+<!--/gaga-->
+
+<!--gaga-->
+  <style>
+    .navbar-toggler-icon {
+      filter: brightness(100);
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .nav-link,
+    .nav-item,
+    .navtabs {
+      color: white;
+      background-color: #3D3D3D;
+    }
+
+    ul.nav.flex-column.og .nav-link {
+      width: 1000px;
+      color: white;
+    }
+
+    ul.nav.flex-column.og .nav-link:hover {
+      background: #F77100;
+      height: max-content;
+      width: 2000px;
+    }
+
+    ul.nav .nav-link {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    ul.nav .nav-link:hover {
+      color: #F77100;
+    }
+    .custom-navbar .nav-link.active,
+    .custom-navbar .nav-link:focus,
+    .custom-navbar .nav-link:active {
+      color: white ;
+      text-decoration: underline;
+    }
+
+    .border-end,
+    .nav-link.border-0 {
+      margin-top: 15px;
+      height: 50%;
+    }
+
+    .carousel-item img {
+      max-height: 360px;
+      height: auto;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      width: 12px;
+      height: 12px;;
+      border-radius: 50%;
+      background-color: #9A9A9A;
+      margin: 0px 5px -15px 5px;
+    }
+
+    .custom-tabs .nav-link {
+      border: none;
+      border-radius: 0;
+      width: clamp(100px, 20vw, 300px);
+      background-color: #E3E3E3;
+      color: black;
+      border-top: 3px solid transparent;
+      /* Add transparent border to prevent layout shift */
+    }
+
+    .custom-tabs .nav-link i {
+      margin-right: 8px;
+      /* Add space between icon and text */
+    }
+
+    .custom-tabs .nav-link.active {
+      color: #F77100;
+      /* Theme color for text and icon */
+      border-top: 3px solid #F77100;
+      /* Theme color for top border */
+    }
+
+    .navbar.navbar-expand-lg.bg-body-tertiary {
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown-item {
+      color: white;
+      font-size: 20px;
+      border-bottom-style: solid;
+      border-color: #838383c2;
+      border-width: 1px;
+      
+    }
+
+    .dropdown-item:hover {
+      color: #F77100;
+      background: transparent;
+    }
+
+    .dropdown-item:focus {
+      color: #F77100;
+      background: transparent;
+    }
+
+    .dropdown-menu {
+      background-color: #3D3D3D;
+      border: none;
+      border-radius: 0%;
+      color: white;
+      padding: 0;
+    }
+
+    .justify-content-center.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    img[alt='ita'] {
+      margin-top: 7.5px;
+      margin-left: 10px;
+      width: 80px;
+      height: 45px;
+      align-items: center;
+    }
+
+    .card-date {
+      border-top: 1px dashed #ccc;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .card-title {
+      color: #F77100;
+    }
+
+    .card-body {
+      font-size: 20px;
+    }
+
+    .footer {
+      background-color: #3D3D3D;
+      color: white;
+    }
+  </style>
+<!--/gaga-->
 </head>
 
-<body style="font-family:TH SarabunPSK; background: #eee; font-size: 20px;">
-  <!--slide-->
-  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+<body style="font-family:TH SarabunPSK; font-size: 20px;">
+  <!--Navbar-->
+
+  <nav class="navbar navbar-expand-lg theme">
+    <div class="container-fluid w-100 ">
+
+      <!--Navbar ColName-->
+      <div class="container-fluid d-none d-lg-flex theme">
+        <div>
+          <a class="navbar-brand" href="#">
+            <img src="img/kmutnb_index_Logo.png" alt="Logo" width="100" height="100"
+              class="d-inline-block align-text-top">
+          </a>
+        </div>
+        <div class="container-text">
+          <span class="header-text1">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</span><br>
+          <span class="header-text2"> MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</span>
+        </div>
+      </div>
+      <!--/Navbar ColName-->
+
+      <button class="navbar-toggler rounded-0 m-0 border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse custom-collapse" id="navbarSupportedContent">
+        <div class="navtabs d-flex d-lg-none ">
+          <ul class="nav flex-column og ">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-start" href="#">
+                หน้าแรก</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-start" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                เกี่ยวกับ มจพ.</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">ประวัติ</a></li>
+                <li><a class="dropdown-item" href="#">สัญลักษณ์</a></li>
+                <li><a class="dropdown-item" href="#">วิสัยทัศน์ / พันธกิจ / สมรรถนะหลัก</a></li>
+                <li><a class="dropdown-item" href="#">โครงสร้างองค์กร</a></li>
+                <li><a class="dropdown-item" href="#">วิทยาเขต</a></li>
+                <li><a class="dropdown-item" href="#">คณะผู้บริหาร</a></li>
+                <li><a class="dropdown-item" href="#">นโยบาย</a></li>
+                <li><a class="dropdown-item" href="#">รายงานประจำปี</a></li>
+                <li><a class="dropdown-item border-0" href="#">องค์กรโปร่งใส</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-start" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                คณะและหน่วยงาน</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">มจพ. กรุงเทพ</a></li>
+                <li><a class="dropdown-item" href="#">มจพ. ปราจีนบุรี</a></li>
+                <li><a class="dropdown-item border-0" href="#">มจพ. ระยอง</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-start" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                รับสมัครนักศึกษา</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">ปวช และปริญญาตรี</a></li>
+                <li><a class="dropdown-item border-0" href="#">ปริญญาโทและปริญญาเอก</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-start" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                วิจัยและบริการวิชาการ</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">ผลงานวิจัยเด่น</a></li>
+                <li><a class="dropdown-item" href="#">ฐานข้อมูลนักวิจัย</a></li>
+                <li><a class="dropdown-item" href="#">วารสารวิชาการ</a></li>
+                <li><a class="dropdown-item border-0" href="#">งานบริการวิชาการ</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-start" href="#">
+                ติดต่อ</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-start" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                ชีวิตในรั้วมหาวิทยาลัย</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">มจพ. กรุงเทพ</a></li>
+                <li><a class="dropdown-item" href="#">มจพ. วิทยาเขตปราจีนบุรี</a></li>
+                <li><a class="dropdown-item border-0" href="#">มจพ. วิทยาเขตระยอง</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-start" href="https://ita.kmutnb.ac.th"
+                target="_blank">ITA</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+  <!--RESPON-Navbar ColName-->
+  <div class="container-fluid d-flex d-lg-none theme">
+    <div>
+      <a class="navbar-brand" href="#">
+        <img src="img/kmutnb_index_Logo.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
+      </a>
+    </div>
+    <div class="container-text">
+      <span class="header-text1">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</span><br>
+      <span class="header-text2"> MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</span>
+    </div>
+  </div>
+  <!--/RESPON-Navbar ColName-->
+
+  <!--RESPON-NavTabs-->
+  <div class="navtabs d-none d-lg-flex justify-content-center">
+    <ul class="nav custom-navbar">
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center justify-content-center border-end border-2 border-secondary"
+          href="#">
+          หน้าแรก</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center border-end border-2 border-secondary"
+          href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          เกี่ยวกับ มจพ.</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">ประวัติ</a></li>
+          <li><a class="dropdown-item" href="#">สัญลักษณ์</a></li>
+          <li><a class="dropdown-item" href="#">วิสัยทัศน์ / พันธกิจ / สมรรถนะหลัก</a></li>
+          <li><a class="dropdown-item" href="#">โครงสร้างองค์กร</a></li>
+          <li><a class="dropdown-item" href="#">วิทยาเขต</a></li>
+          <li><a class="dropdown-item" href="#">คณะผู้บริหาร</a></li>
+          <li><a class="dropdown-item" href="#">นโยบาย</a></li>
+          <li><a class="dropdown-item" href="#">รายงานประจำปี</a></li>
+          <li><a class="dropdown-item border-0" href="#">องค์กรโปร่งใส</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center border-end border-2 border-secondary"
+          href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          คณะและหน่วยงาน</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">มจพ. กรุงเทพ</a></li>
+          <li><a class="dropdown-item" href="#">มจพ. ปราจีนบุรี</a></li>
+          <li><a class="dropdown-item border-0" href="#">มจพ. ระยอง</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center border-end border-2 border-secondary"
+          href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          รับสมัครนักศึกษา</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">ปวช และปริญญาตรี</a></li>
+          <li><a class="dropdown-item border-0" href="#">ปริญญาโทและปริญญาเอก</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center border-end border-2 border-secondary"
+          href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          วิจัยและบริการวิชาการ</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">ผลงานวิจัยเด่น</a></li>
+          <li><a class="dropdown-item" href="#">ฐานข้อมูลนักวิจัย</a></li>
+          <li><a class="dropdown-item" href="#">วารสารวิชาการ</a></li>
+          <li><a class="dropdown-item border-0" href="#">งานบริการวิชาการ</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center justify-content-center border-end border-2 border-secondary"
+          href="#">
+          ติดต่อ</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center border-0" href="#"
+          role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          ชีวิตในรั้วมหาวิทยาลัย</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">มจพ. กรุงเทพ</a></li>
+          <li><a class="dropdown-item" href="#">มจพ. วิทยาเขตปราจีนบุรี</a></li>
+          <li><a class="dropdown-item border-0" href="#">มจพ. วิทยาเขตระยอง</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="https://ita.kmutnb.ac.th" target="_blank"><img src="img/icon1/ITA.jpg" alt="ita"></a>
+      </li>
+    </ul>
+  </div>
+  <!--/RESPON-NavTabs-->
+
+  <!--/NAVBAR-->
+  <!--Slide-->
+
+<div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active rounded-circle"
         aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" class="rounded-circle"
         aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" class="rounded-circle"
         aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="3" class="rounded-circle"
+        aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="4" class="rounded-circle"
+        aria-label="Slide 5"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="3000">
-        <img src="img/1.jpg" style="max-height: 350px; height: auto;" class="d-block w-100" alt="...">
+      <div class="carousel-item active">
+        <img src="img/2306190880514.jpg" class="d-block w-100" alt="...">
       </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <img src="img/2.jpg" style="max-height: 350px; height: auto;" class="d-block w-100" alt="...">
+      <div class="carousel-item">
+        <img src="img/55.jpg" class="d-block w-100" alt="...">
       </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <img src="img/3.jpg" style="max-height: 350px; height: auto;" class="d-block w-100" alt="...">
+      <div class="carousel-item">
+        <img src="img/77.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/88.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/66.jpg" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -61,544 +516,221 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <!--NAVBAR-->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative">
-    <!-- The actual logo, positioned absolutely to the navbar -->
-    <img src="img/logo.png" alt="logo" class="position-absolute bottom-0 start-0"
-      style="width: clamp(200px, 40vw, 600px); max-height: 200px; z-index: 1;">
 
-    <!-- Container for the layout flow -->
-    <div class="container-fluid">
-      <div class="d-flex align-items-end"> <!-- Give the container height for alignment -->
-        <!-- 1. Invisible placeholder with the same responsive width as the logo -->
-        <div style="width: clamp(200px, 40vw, 600px); flex-shrink: 0;">&nbsp;</div>
+  <!--Slide-->
 
-        <!-- 2. Nav tabs, which will be pushed over smoothly by the placeholder -->
-        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-left: -35px;">
-          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-            type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
-            role="tab" aria-controls="nav-profile" aria-selected="false">สท.4/2</button>
-          <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
-            role="tab" aria-controls="nav-contact" aria-selected="false">สท.4/1</button>
+
+  <!--TABS-->
+  <div class="container-fluid d-flex justify-content-center m-0 " style="
+  background-color: #E3E3E3; position: relative; z-index: 1;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="nav nav-tabs custom-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+          role="tab" aria-controls="nav-home" aria-selected="true"> <i class="bi bi-bank"></i> ข่าวมหาวิทยาลัย</button>
+
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+          role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="bi bi-book"></i> ข่าวทุนวิจัย/อบรม</button>
+
+        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+          role="tab" aria-controls="nav-contact" aria-selected="false"> <i class="bi bi-person-fill"></i> ข่าวนักศึกษา</button>
+
+        <button class="nav-link" id="nav-last-tab" data-bs-toggle="tab" data-bs-target="#nav-last" type="button"
+          role="tab" aria-controls="nav-contact" aria-selected="false"> <i class="bi bi-book"></i> ข่าวรับสมัครนักศึกษา</button>
+
+      </div>
+    </nav>
+  </div>
+  <!--TABS-->
+
+
+  <!--Tab Content-->
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+      <div class="container mt-4">
+        <div class="row justify-content-center">
+          <!-- Card 1 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f1.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Meeting to prepare for the "Long Distance Hiking and Camping Project for Senior Rover Scouts" of Sattahip Technical College for the academic year 2025.</h5>
+                <p class="card-text">Meeting to prepare for the "Long Distance Hiking and Camping Project for Senior Rover Scouts" of Sattahip Technical College for the academic year 2025.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 18/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f2.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Participation in the science project contest for the eastern region and Bangkok for the academic year 2025.</h5>
+                <p class="card-text">Participation in the science project contest for the eastern region and Bangkok for the academic year 2025.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 18/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f3.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Welcoming representatives from Ritta Co., Ltd. to visit the college to exchange experiences in teaching and learning management and to discuss the recruitment of students for the dual vocational training system.</h5>
+                <p class="card-text">Welcoming representatives from Ritta Co., Ltd. to visit the college to exchange experiences in teaching and learning management and to discuss the recruitment of students for the dual vocational training system.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 11/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f4.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Participation in the opening ceremony of the volunteer spirit development activity 'on the occasion of King Narai the Great's Day'.</h5>
+                <p class="card-text">Participation in the opening ceremony of the volunteer spirit development activity 'on the occasion of King Narai the Great's Day'.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 11/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <!-- Card 5 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f3.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Welcoming the evaluation committee for the vocational education entrepreneurship incubation center at the provincial level.</h5>
+                <p class="card-text">Welcoming the evaluation committee for the vocational education entrepreneurship incubation center at the provincial level.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 11/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f4.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Participation in the meeting and joining the public-private joint sub-committee to produce and develop vocational manpower (A.Kor.Or.Sor.).</h5>
+                <p class="card-text">Participation in the meeting and joining the public-private joint sub-committee to produce and develop vocational manpower (A.Kor.Or.Sor.).</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 11/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 7 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f1.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Participation in the project to promote the tradition of the candle festival for the year 2025 at Sattahip Temple (Luang Por Yi) and the Khao Phloi meditation center.</h5>
+                <p class="card-text">Participation in the project to promote the tradition of the candle festival for the year 2025 at Sattahip Temple (Luang Por Yi) and the Khao Phloi meditation center.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 11/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 8 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f2.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Welcoming the delegation from the Manpower Development Office, the Office of the Eastern Special Development Zone Policy Committee (EEC) to discuss and exchange information on teaching and learning management and the development of vocational education personnel.</h5>
+                <p class="card-text">Welcoming the delegation from the Manpower Development Office, the Office of the Eastern Special Development Zone Policy Committee (EEC) to discuss and exchange information on teaching and learning management and the development of vocational education personnel.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 04/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <!-- Card 9 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f4.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Participation in the candle festival activity on the occasion of the Buddhist Lent at Ban Amphoe beach and Wat Ampharam.</h5>
+                <p class="card-text">Participation in the candle festival activity on the occasion of the Buddhist Lent at Ban Amphoe beach and Wat Ampharam.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 04/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 10 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f1.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Meeting to prepare for the external quality assessment.</h5>
+                <p class="card-text">Meeting to prepare for the external quality assessment.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 04/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 11 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f2.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Meeting to prepare for the "Long Distance Hiking and Camping Project for Senior Rover Scouts" of Sattahip Technical College for the academic year 2025.</h5>
+                <p class="card-text">Meeting to prepare for the "Long Distance Hiking and Camping Project for Senior Rover Scouts" of Sattahip Technical College for the academic year 2025.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 18/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 12 -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="img/f3.jpg" class="card-img-top" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Participation in the science project contest for the eastern region and Bangkok for the academic year 2025.</h5>
+                <p class="card-text">Participation in the science project contest for the eastern region and Bangkok for the academic year 2025.</p>
+                <div class="mt-auto card-date">
+                  <i class="bi bi-calendar"></i> 18/07/2568
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-  <!--tabcontent-->
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-      this is hometab
     </div>
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-      <!--รูปการ์ด-->
-      <div class="conteiner mt-4 RESPON">
-        <div class="row row-cols-1 row-cols-md-4 g-4 mt-1">
-          <div class="col">
-            <div class="card">
-              <img src="img/Student/S1.jfif" class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010024</h5>
-                <p class="card-text">นายภีระพัฒน์ คำอ้อ</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="img/Student/68319010025.jfif" class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010025</h5>
-                <p class="card-text">นายภูริวัจน์ ลิ้มวัฒนโรจน์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="img/Student/68319010026.jfif" class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010026</h5>
-                <p class="card-text">นางสาวมินทร์ตรายา เจริญผล</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="img/Student/68319010027.jfif" class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010027</h5>
-                <p class="card-text">นางสาวยุพาวัลย์ อินจันทร์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-
-
-          <!--Row2-->
-
-          <div class="col">
-            <div class="card">
-              <img src="img/Student/68319010028.jfif" class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010028</h5>
-                <p class="card-text">นายวราวุธ เพ็งขุนทด</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="img/Student/68319010029.jfif" class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010029</h5>
-                <p class="card-text">นางสาววาสนา ไทรศักดิ์สิทธิ์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010030.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010030</h5>
-                <p class="card-text">นางสาววิรดา ยาจันทรา</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010031.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010031</h5>
-                <p class="card-text">นายวิศรุต นามเสนาะ</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <!--Row3-->
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010032.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010032</h5>
-                <p class="card-text">นายศตวรรษ เนื่องจำนงค์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010033.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010033</h5>
-                <p class="card-text">นายศิริศักดิ์ เจริญอาจ</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010034.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010034</h5>
-                <p class="card-text">นายศิวัฒน์ เลิศขุนทด</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010035.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010035</h5>
-                <p class="card-text">นายศุภกานต์ สาตสิน</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <!--Row4-->
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010036.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010036</h5>
-                <p class="card-text">นายศุภฤกษ์ ยะตั๋น</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010037.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010037</h5>
-                <p class="card-text">นางสาวศุภิสรา แสนเจียม</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010038.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010038</h5>
-                <p class="card-text">นายสธน ลิ้มสกุลทิพย์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010039.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010039</h5>
-                <p class="card-text">นายสรธร มนูญธรรมพร</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <!--Row5-->
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010040.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010040</h5>
-                <p class="card-text">นายสิปปวิชญ์ ฉิมกลาง</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010041.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010041</h5>
-                <p class="card-text">นายสิรภัทร จุฬารัชศิลป์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010042.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010042</h5>
-                <p class="card-text">นายสุรวัฒน์ ศรีสุวรรณ์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010043.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010043</h5>
-                <p class="card-text">นางสาวหทัยกาญจน์ บุญทัศน์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <!--Row6-->
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010044.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010044</h5>
-                <p class="card-text">นายอนันต์สิทธิ์ จุ้ยเย็น</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010045.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010045</h5>
-                <p class="card-text">นายออสการ์ คลาวสลี่ย์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      this is hometab
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-      <div class="conteiner mt-4 RESPON">
-        <div class="row row-cols-1 row-cols-md-4 g-4 mt-1">
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010001.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010001</h5>
-                <p class="card-text">นายกรณ์ดนัย อินทรโอสถ</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010002.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010002</h5>
-                <p class="card-text">นางสาวกัญญาวีร์ ศรีกัลยาณกุล </p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010003.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010003</h5>
-                <p class="card-text">นายจาตุรนต์ แสงสังข์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010004.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010004</h5>
-                <p class="card-text">นายจิรวัฒน์ บุญแผนร์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-
-
-          <!--Row2-->
-
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010005.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010005</h5>
-                <p class="card-text">นางสาวชลธิชา หล้าโสม</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010006.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010006</h5>
-                <p class="card-text">นายชัยวัฒน์ ปรารมย์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010007.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010008</h5>
-                <p class="card-text">นายชัยวัฒน์ ลบแย้ม</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010009.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010009</h5>
-                <p class="card-text">นายณภัทร เสลี</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <!--Row3-->
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010010.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010010</h5>
-                <p class="card-text">นายณัฐพล พันธุ</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010011.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010011</h5>
-                <p class="card-text">นายทัพพ์จิรัฐ กาญจนเกตุ</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010012.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010012</h5>
-                <p class="card-text">นายธนวัฒน์ ทองดีนอก</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010013.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010013</h5>
-                <p class="card-text">นายธนสร ใสยิ่ง</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <!--Row4-->
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010014.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010014</h5>
-                <p class="card-text">นางสาวธวัลรัตน์ เกตุมงคลวิวัฒน์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010015.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010015</h5>
-                <p class="card-text">นายธันวา เกตุสุวรรณ</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010016.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010016</h5>
-                <p class="card-text">นายธีรวัฒน์ พรมสิงห์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010017.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010017</h5>
-                <p class="card-text">นางสาวนภัส เพชรฤทธิ์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <!--Row5-->
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010018.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010018</h5>
-                <p class="card-text">นายนรวีร์ ย่วนยินรักษ์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010019.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010019</h5>
-                <p class="card-text">นายนฤเบศ แพทย์ประสิทธิ์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010020.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010020</h5>
-                <p class="card-text">นายนาวิน ศิริขันแสง</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010021.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010021</h5>
-                <p class="card-text">นายแผ่นฟ้า เทศวิศาล</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <!--Row6-->
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010022.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010022</h5>
-                <p class="card-text">นายพัณณ์กฤต สินธุรักษ์</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="https://rms.tatc.ac.th/image.php?src=files/importpicstd/01/68319010023.jpg&x=200&f=0"
-                class="card-img-top rounded-circle" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">68319010023</h5>
-                <p class="card-text">นายภัทรพล พลเขต</p>
-                <button type="button" class="btn btn-primary">Profile</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      this is hometab
     </div>
-
+    <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab" tabindex="0">
+      this is hometab
+    </div>
   </div>
+  <!--Tab Content-->
+
+
+
+  <footer class="footer theme-dark py-3">
+    <div class="container text-center align-items-center">
+      <img src="img/foot.jpg" alt="Footer Logo">
+      <p class="text-white mb-0">Copyright © 2018 King Mongkut's University of Technology North Bangkok</p>
+    </div>
+  </footer>
 
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
